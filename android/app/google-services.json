@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "202122265929",
+    "project_id": "pupbook-2513a",
+    "storage_bucket": "pupbook-2513a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202122265929:android:804ce3ef8d79dd37d18698",
+        "android_client_info": {
+          "package_name": "com.example.pupbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202122265929-ho2n5s2srkvg66kdum31c7qqde4cj4nc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWNENKFCT3lCTLlqEbiYknlBEk0aCb3yI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202122265929-ho2n5s2srkvg66kdum31c7qqde4cj4nc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "202122265929-0olrplh2kntk5tg1htvkf73i0qfv6jhp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.testeCaching"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
