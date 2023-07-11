@@ -38,6 +38,7 @@ dependencies:
   go_router: ^9.0.3
   google_nav_bar: ^5.0.6
   firebase_core: ^2.14.0
+  cloud_firestore: ^4.8.2
 
 dev_dependencies:
   flutter_test:

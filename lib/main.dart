@@ -1,10 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pupbook/component/layout/route_navigation.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'package:pupbook/components/layout/route_navigation.dart';
 import 'package:pupbook/globals/app_routes.dart';
 import 'package:pupbook/utils/generate_material_color.dart';
+
+import 'firebase_options.dart';
 
 void main() async {
   await WidgetsFlutterBinding.ensureInitialized();
@@ -15,8 +16,6 @@ void main() async {
 
   runApp(const MyApp());
 }
-
-
 
 final GoRouter _router = GoRouter(
   initialLocation: appRoutes.first.route,
