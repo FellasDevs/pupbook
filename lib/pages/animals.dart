@@ -6,9 +6,9 @@ class Animals extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimalsPageTemplate(
+    return const AnimalsPageTemplate(
       title: 'Animais',
-      child: const Center(child: Text('Animais')),
+      child: Center(child: Text('Animais')),
     );
   }
 }

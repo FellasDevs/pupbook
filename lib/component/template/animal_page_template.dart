@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AnimalsPageTemplate extends StatelessWidget {
   final Widget? child;
   final String title;
-  final bool showAddButton;
-  final VoidCallback? onClick;
+  final VoidCallback? actionButtonOnPressed;
 
-  const AnimalsPageTemplate({super.key, this.child, required this.title, this.onClick, this.showAddButton = true});
+  const AnimalsPageTemplate({super.key, this.child, required this.title, this.actionButtonOnPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -14,17 +14,15 @@ class AnimalsPageTemplate extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.go('/home'),
         ),
       ),
       body: child,
 
-      floatingActionButton: showAddButton ? FloatingActionButton(
-        onPressed: () => onClick,
-        child: Icon(Icons.add),
+      floatingActionButton: actionButtonOnPressed != null ? FloatingActionButton(
+        onPressed: actionButtonOnPressed ,
+        child: const Icon(Icons.add),
       ): null,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
