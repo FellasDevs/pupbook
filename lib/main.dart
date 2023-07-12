@@ -22,7 +22,7 @@ final GoRouter _router = GoRouter(
   routes: [
     ShellRoute(
       builder: (context, state, child) {
-        return RouterNavigation(body: child);
+        return RouterNavigation(body: child, currentScreen: state.location);
       },
       routes: List<RouteBase>.from(appRoutes.map((route) => GoRoute(
             path: route.route,
@@ -45,8 +45,7 @@ class MyApp extends StatelessWidget {
           colorScheme: const ColorScheme(
             brightness: Brightness.light,
             primary: Color(0xFFFD9340),
-            onPrimary: Color(0xFFFFE1C9),
-            primaryContainer: Color(0xFFDC8C4D),
+            onPrimary: Colors.white,
             secondary: Color(0xFFFED17A),
             onSecondary: Color(0xFFBC8A28),
             secondaryContainer: Color(0xFFFFEDC9),
