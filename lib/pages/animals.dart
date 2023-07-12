@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:pupbook/component/template/animal_page_template.dart';
 
 class Animals extends StatelessWidget {
-  const Animals({super.key});
+  const Animals({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('Animais'));
+    return AnimalsPageTemplate(
+      title: 'Animais',
+      child: const Center(child: Text('Animais')),
+    );
   }
 }
