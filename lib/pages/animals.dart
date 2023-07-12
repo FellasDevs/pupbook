@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pupbook/component/template/animal_page_template.dart';
 
 class Animals extends StatelessWidget {
-  const Animals({Key? key}) : super(key: key);
+  const Animals({super.key});
 
   @override
   Widget build(BuildContext context) {

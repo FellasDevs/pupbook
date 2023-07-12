@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 class AnimalsPageTemplate extends StatelessWidget {
   final Widget? child;
   final String title;
+  final bool showAddButton;
+  final VoidCallback? onClick;
 
-  const AnimalsPageTemplate({Key? key, this.child, required this.title}) : super(key: key);
+  const AnimalsPageTemplate({super.key, this.child, required this.title, this.onClick, this.showAddButton = true});
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +20,12 @@ class AnimalsPageTemplate extends StatelessWidget {
           },
         ),
       ),
-      body: Stack(
-        children: [
-          if (child != null) Padding(
-            padding: const EdgeInsets.only(bottom: 80.0),
-            child: child!,
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your logic for adding items to the table here
-          // You can display a dialog or navigate to another screen to add items
-          // For this example, we'll just print a message to the console
-          print('Add button pressed');
-        },
+      body: child,
+
+      floatingActionButton: showAddButton ? FloatingActionButton(
+        onPressed: () => onClick,
         child: Icon(Icons.add),
-      ),
+      ): null,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
