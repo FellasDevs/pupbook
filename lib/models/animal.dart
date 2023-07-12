@@ -1,4 +1,4 @@
-abstract class Animal {
+class Animal {
   final String name;
   final String gender;
   final String size;
@@ -8,6 +8,7 @@ abstract class Animal {
   final DateTime? birthDate;
   final String? breed;
   final String? image;
+  final String? owner;
 
   Animal({
     required this.name,
@@ -19,5 +20,6 @@ abstract class Animal {
     this.breed,
     this.birthDate,
     this.image,
+    this.owner,
   });
 }
