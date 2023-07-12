@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pupbook/components/template/page_scaffold.dart';
+import 'package:pupbook/components/layout/page_scaffold.dart';
 
 class UnifeiDogs extends StatelessWidget {
   const UnifeiDogs({super.key});
