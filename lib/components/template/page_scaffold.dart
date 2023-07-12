@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class AnimalsPageTemplate extends StatelessWidget {
+class PageScaffold extends StatelessWidget {
   final Widget? child;
   final String title;
   final VoidCallback? actionButtonOnPressed;
 
-  const AnimalsPageTemplate({super.key, this.child, required this.title, this.actionButtonOnPressed});
+  const PageScaffold({super.key, this.child, required this.title, this.actionButtonOnPressed});
 
   @override
   Widget build(BuildContext context) {
