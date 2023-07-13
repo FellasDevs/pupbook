@@ -3,31 +3,44 @@ import 'package:go_router/go_router.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:pupbook/globals/app_routes.dart';
 
-class RouterNavigation extends StatefulWidget {
+class RouterNavigation extends StatelessWidget {
   final Widget body;
-  const RouterNavigation({super.key, required this.body});
+  final String currentScreen;
 
-  @override
-  State<RouterNavigation> createState() => _RouterNavigationState();
-}
+  const RouterNavigation(
+      {super.key, required this.body, required this.currentScreen});
 
-class _RouterNavigationState extends State<RouterNavigation> {
-  changeRoute(int index) {
-    context.go(appRoutes.elementAt(index).route);
+  getCurrentIndex() {
+    return appRoutes.indexWhere((route) => currentScreen == route.route);
   }
 
   @override
   Widget build(BuildContext context) {
+    changeRoute(int index) {
+      context.go(appRoutes.elementAt(index).route);
+    }
+
     return Scaffold(
-        body: SafeArea(child: widget.body),
+        body: SafeArea(child: body),
         bottomNavigationBar: Container(
-          color: Theme.of(context).colorScheme.primaryContainer,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primary,
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black,
+                spreadRadius: 4,
+                blurRadius: 8,
+                offset: Offset(0, 6), // changes position of shadow
+              ),
+            ],
+          ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: GNav(
+              selectedIndex: getCurrentIndex(),
               onTabChange: (index) => changeRoute(index),
-              backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-              color: Theme.of(context).colorScheme.onPrimaryContainer,
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context).colorScheme.onPrimary,
               tabBackgroundColor:
                   Theme.of(context).colorScheme.secondaryContainer,
               activeColor: Theme.of(context).colorScheme.onSecondary,
