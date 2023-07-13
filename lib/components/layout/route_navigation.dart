@@ -27,10 +27,9 @@ class RouterNavigation extends StatelessWidget {
             color: Theme.of(context).colorScheme.primary,
             boxShadow: const [
               BoxShadow(
-                color: Colors.black,
-                spreadRadius: 4,
+                color: Colors.grey,
                 blurRadius: 8,
-                offset: Offset(0, 6), // changes position of shadow
+                spreadRadius: 3,
               ),
             ],
           ),

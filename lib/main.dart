@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pupbook/components/layout/route_navigation.dart';
 import 'package:pupbook/globals/app_routes.dart';
+import 'package:pupbook/models/animal.dart';
+import 'package:pupbook/pages/animal_info.dart';
 import 'package:pupbook/utils/generate_material_color.dart';
 
 import 'firebase_options.dart';
@@ -20,6 +22,12 @@ void main() async {
 final GoRouter _router = GoRouter(
   initialLocation: appRoutes.first.route,
   routes: [
+    GoRoute(
+        path: '/animal_info',
+        builder: (context, state) {
+          Animal animal = state.extra as Animal;
+          return AnimalInfo(animal: animal);
+        }),
     ShellRoute(
       builder: (context, state, child) {
         return RouterNavigation(body: child, currentScreen: state.location);
@@ -49,9 +57,8 @@ class MyApp extends StatelessWidget {
             secondary: Color(0xFFFED17A),
             onSecondary: Color(0xFFBC8A28),
             secondaryContainer: Color(0xFFFFEDC9),
-            tertiary: Color(0xFF5A74AA),
-            tertiaryContainer: Color(0xFFB9C7E5),
-            onTertiaryContainer: Color(0xFF25417E),
+            tertiary: Color(0xFF3D5893), // 0xFF5A74AA 0xFF3D5893 0xFF25417E
+            onTertiaryContainer: Colors.white, // 0xFFB9C7E5
             error: Colors.red,
             onError: Colors.white,
             background: Colors.white,

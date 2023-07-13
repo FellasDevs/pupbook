@@ -6,7 +6,8 @@ class PageScaffold extends StatelessWidget {
   final String title;
   final VoidCallback? actionButtonOnPressed;
 
-  const PageScaffold({super.key, this.child, required this.title, this.actionButtonOnPressed});
+  const PageScaffold(
+      {super.key, this.child, required this.title, this.actionButtonOnPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +20,12 @@ class PageScaffold extends StatelessWidget {
         ),
       ),
       body: child,
-
-      floatingActionButton: actionButtonOnPressed != null ? FloatingActionButton(
-        onPressed: actionButtonOnPressed ,
-        child: const Icon(Icons.add),
-      ): null,
+      floatingActionButton: actionButtonOnPressed != null
+          ? FloatingActionButton(
+              onPressed: actionButtonOnPressed,
+              child: const Icon(Icons.add),
+            )
+          : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
