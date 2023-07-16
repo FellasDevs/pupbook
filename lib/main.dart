@@ -5,12 +5,13 @@ import 'package:pupbook/components/layout/route_navigation.dart';
 import 'package:pupbook/globals/app_routes.dart';
 import 'package:pupbook/models/animal.dart';
 import 'package:pupbook/pages/animal_info.dart';
+import 'package:pupbook/pages/login.dart';
 import 'package:pupbook/utils/generate_material_color.dart';
 
 import 'firebase_options.dart';
 
 void main() async {
-  await WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -23,10 +24,9 @@ final GoRouter _router = GoRouter(
   initialLocation: appRoutes.first.route,
   routes: [
     GoRoute(
-        path: '/animal_info',
+        path: '/login',
         builder: (context, state) {
-          Animal animal = state.extra as Animal;
-          return AnimalInfo(animal: animal);
+          return LoginScreen();
         }),
     ShellRoute(
       builder: (context, state, child) {
