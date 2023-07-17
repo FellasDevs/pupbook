@@ -24,4 +24,10 @@ class AnimalsController {
       return [];
     }
   }
+
+  createAnimal() async {}
+
+  editAnimal() async {}
+
+  deleteAnimal() async {}
 }

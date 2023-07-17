@@ -1,15 +1,15 @@
 class Animal {
-  final String name;
-  final String description;
-  final String gender;
-  final String size;
-  final num weight;
-  final String species;
-  final List<String> vaccines;
-  final DateTime? birthDate;
-  final String? breed;
-  final String? image;
-  final String? owner;
+  String name;
+  String description;
+  String gender;
+  String size;
+  num weight;
+  String species;
+  List<String> vaccines;
+  DateTime? birthDate;
+  String? breed;
+  String? image;
+  String? createdBy;
 
   Animal({
     required this.name,
@@ -22,7 +22,7 @@ class Animal {
     this.breed,
     this.birthDate,
     this.image,
-    this.owner,
+    this.createdBy,
   });
 
   factory Animal.fromFirestore(Map<String, dynamic> doc) {
@@ -37,7 +37,7 @@ class Animal {
       breed: doc['breed'],
       birthDate: DateTime.tryParse(doc['birth_date']),
       image: doc['image'],
-      owner: doc['owner'],
+      createdBy: doc['created_by'],
     );
   }
 }
