@@ -14,6 +14,58 @@
       },
       "oauth_client": [
         {
+          "client_id": "202122265929-ed44hlhvo3ctet1a57pnc4hfcputb9v2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pupbook",
+            "certificate_hash": "1338bb4294d9481ef779a8d94671abbfdc66fb5d"
+          }
+        },
+        {
+          "client_id": "202122265929-ho2n5s2srkvg66kdum31c7qqde4cj4nc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWNENKFCT3lCTLlqEbiYknlBEk0aCb3yI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202122265929-ho2n5s2srkvg66kdum31c7qqde4cj4nc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "202122265929-0olrplh2kntk5tg1htvkf73i0qfv6jhp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.testeCaching"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202122265929:android:dc1988919762e297d18698",
+        "android_client_info": {
+          "package_name": "com.example.pupbookdebug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202122265929-me5hdbftintvfm99sl3gulcoo9pd2ivs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pupbookdebug",
+            "certificate_hash": "1338bb4294d9481ef779a8d94671abbfdc66fb5d"
+          }
+        },
+        {
           "client_id": "202122265929-ho2n5s2srkvg66kdum31c7qqde4cj4nc.apps.googleusercontent.com",
           "client_type": 3
         }

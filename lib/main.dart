@@ -1,10 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pupbook/components/layout/route_navigation.dart';
 import 'package:pupbook/globals/app_routes.dart';
-import 'package:pupbook/models/animal.dart';
-import 'package:pupbook/pages/animal_info.dart';
 import 'package:pupbook/pages/login.dart';
 import 'package:pupbook/utils/generate_material_color.dart';
 
@@ -22,22 +21,39 @@ void main() async {
 
 final GoRouter _router = GoRouter(
   initialLocation: appRoutes.first.route,
+  redirect: (context, state) {
+    final isLoggedIn = FirebaseAuth.instance.currentUser != null;
+    final isInLoginPage = state.location == '/login';
+
+    // User is not logged and not in login page
+    if (!isLoggedIn) return isInLoginPage ? null : '/login';
+
+    // User is logged and in login page
+    if (isInLoginPage) return '/home';
+
+    return null;
+  },
   routes: [
     GoRoute(
-        path: '/login',
-        builder: (context, state) {
-          return LoginScreen();
-        }),
+      path: '/login',
+      builder: (context, state) {
+        return LoginScreen();
+      },
+    ),
     ShellRoute(
       builder: (context, state, child) {
         return RouterNavigation(body: child, currentScreen: state.location);
       },
-      routes: List<RouteBase>.from(appRoutes.map((route) => GoRoute(
+      routes: List<RouteBase>.from(
+        appRoutes.map(
+          (route) => GoRoute(
             path: route.route,
             builder: (context, state) {
               return route.component;
             },
-          ))),
+          ),
+        ),
+      ),
     ),
   ],
 );
