@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController {
-  final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   signInWithGoogle(BuildContext context) async {
@@ -18,7 +18,7 @@ class AuthController {
         idToken: googleAuth.idToken,
       );
 
-      await auth.signInWithCredential(credential);
+      await _auth.signInWithCredential(credential);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
