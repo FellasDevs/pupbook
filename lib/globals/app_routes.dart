@@ -4,13 +4,13 @@ import "package:pupbook/pages/animals.dart";
 import "package:pupbook/pages/home.dart";
 import "package:pupbook/pages/unifei_dogs.dart";
 
-List<AppRoute> appRoutes = const [
+List<AppRoute> appRoutes = [
   AppRoute(name: 'Início', route: '/home', component: Home(), icon: Icons.home),
-  AppRoute(
+  const AppRoute(
       name: 'Cães da Unifei',
       route: '/unifei-dogs',
       component: UnifeiDogs(),
       icon: Icons.domain),
-  AppRoute(
+  const AppRoute(
       name: 'Pets', route: '/animals', component: Animals(), icon: Icons.pets),
 ];

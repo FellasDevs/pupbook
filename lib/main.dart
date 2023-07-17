@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pupbook/components/layout/route_navigation.dart';
 import 'package:pupbook/globals/app_routes.dart';
-import 'package:pupbook/models/animal.dart';
-import 'package:pupbook/pages/animal_info.dart';
+import 'package:pupbook/pages/login.dart';
 import 'package:pupbook/utils/generate_material_color.dart';
 
 import 'firebase_options.dart';
 
 void main() async {
-  await WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -23,21 +22,25 @@ final GoRouter _router = GoRouter(
   initialLocation: appRoutes.first.route,
   routes: [
     GoRoute(
-        path: '/animal_info',
-        builder: (context, state) {
-          Animal animal = state.extra as Animal;
-          return AnimalInfo(animal: animal);
-        }),
+      path: '/login',
+      builder: (context, state) {
+        return LoginScreen();
+      },
+    ),
     ShellRoute(
       builder: (context, state, child) {
         return RouterNavigation(body: child, currentScreen: state.location);
       },
-      routes: List<RouteBase>.from(appRoutes.map((route) => GoRoute(
+      routes: List<RouteBase>.from(
+        appRoutes.map(
+          (route) => GoRoute(
             path: route.route,
             builder: (context, state) {
               return route.component;
             },
-          ))),
+          ),
+        ),
+      ),
     ),
   ],
 );
