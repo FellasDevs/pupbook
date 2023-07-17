@@ -26,6 +26,8 @@ class CustomNumberField extends StatelessWidget {
       text: value.toString(),
       validator: validator,
       onChanged: (newValue) {
+        if (newValue == null || newValue.isEmpty) return;
+
         final parsedValue = num.tryParse(newValue);
 
         if (parsedValue == null) {
