@@ -15,7 +15,7 @@ class AnimalsListItemContent extends StatelessWidget {
         style: TextStyle(
             overflow: TextOverflow.ellipsis,
             fontSize: 20,
-            color: Theme.of(context).colorScheme.onTertiaryContainer),
+            color: Theme.of(context).colorScheme.onTertiary),
       );
     }
 
@@ -50,7 +50,7 @@ class AnimalsListItemContent extends StatelessWidget {
           ),
         ),
         Icon(Icons.arrow_forward,
-            color: Theme.of(context).colorScheme.onTertiaryContainer),
+            color: Theme.of(context).colorScheme.onTertiary),
       ],
     );
   }
