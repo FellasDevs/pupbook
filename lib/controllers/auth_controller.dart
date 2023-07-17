@@ -19,10 +19,10 @@ class AuthController {
       );
 
       await _auth.signInWithCredential(credential);
-    } catch (e) {
+    } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Failed to sign in with Google: $e'),
+          content: Text('Erro ao entrar com o Google: $error'),
         ),
       );
     }

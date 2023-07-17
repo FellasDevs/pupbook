@@ -35,7 +35,14 @@ class _AnimalsPageLayoutState extends State<AnimalsPageLayout> {
       ),
     );
 
-    print(newAnimal != null ? newAnimal.name : 'no');
+    if (newAnimal == null) return;
+
+    setState(() {
+      isLoading = true;
+    });
+
+    await widget.controller.create(context, newAnimal);
+    await getAnimals();
   }
 
   onEdit(Animal animal) async {
@@ -46,7 +53,14 @@ class _AnimalsPageLayoutState extends State<AnimalsPageLayout> {
       ),
     );
 
-    print(newAnimal != null ? newAnimal.name : 'no');
+    if (newAnimal == null) return;
+
+    setState(() {
+      isLoading = true;
+    });
+
+    await widget.controller.edit(context, newAnimal);
+    await getAnimals();
   }
 
   onDelete(Animal animal) async {
@@ -60,7 +74,14 @@ class _AnimalsPageLayoutState extends State<AnimalsPageLayout> {
       confirmButtonTxtColor: Theme.of(context).colorScheme.onError,
     );
 
-    print(shouldDelete == true ? 'deletou' : 'nop');
+    if (shouldDelete != true) return;
+
+    setState(() {
+      isLoading = true;
+    });
+
+    await widget.controller.delete(context, animal);
+    await getAnimals();
   }
 
   getAnimals() async {
