@@ -24,7 +24,6 @@ class _CreateAnimalState extends State<CreateAnimal> {
     size: '',
     weight: 0,
     species: '',
-    // opcionais \/
     description: '',
     image: '',
     breed: '',
@@ -101,7 +100,6 @@ class _CreateAnimalState extends State<CreateAnimal> {
         value: animal.birthDate,
         label: 'data de nascimento',
       ),
-      // Breed
       // Vaccines
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
