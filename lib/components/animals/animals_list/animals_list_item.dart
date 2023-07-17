@@ -5,13 +5,19 @@ import 'package:pupbook/components/animals/animals_list/animals_list_item_conten
 import 'package:pupbook/models/animal.dart';
 
 class AnimalsListItem extends StatelessWidget {
-  final Function? onEdit;
-  final Function? onDelete;
+  final bool canModify;
+  final void Function(Animal) onEdit;
+  final void Function(Animal) onDelete;
 
   final Animal animal;
 
-  const AnimalsListItem(
-      {super.key, required this.animal, this.onDelete, this.onEdit});
+  const AnimalsListItem({
+    super.key,
+    required this.animal,
+    required this.canModify,
+    required this.onDelete,
+    required this.onEdit,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +30,7 @@ class AnimalsListItem extends StatelessWidget {
               topRight: Radius.circular(10),
               bottomRight: Radius.circular(10),
             ),
-            onPressed: (context) => onEdit!(),
+            onPressed: (context) => onEdit(animal),
             backgroundColor: Theme.of(context).colorScheme.surface,
             foregroundColor: Colors.white,
             icon: Icons.edit,
@@ -43,7 +49,7 @@ class AnimalsListItem extends StatelessWidget {
               topLeft: Radius.circular(10),
               bottomLeft: Radius.circular(10),
             ),
-            onPressed: (context) => onDelete!(),
+            onPressed: (context) => onDelete(animal),
             backgroundColor: Theme.of(context).colorScheme.error,
             foregroundColor: Colors.white,
             icon: Icons.delete,
@@ -54,8 +60,8 @@ class AnimalsListItem extends StatelessWidget {
     }
 
     return Slidable(
-      startActionPane: onDelete == null ? null : deleteActionPane(),
-      endActionPane: onEdit == null ? null : editActionPane(),
+      startActionPane: canModify ? deleteActionPane() : null,
+      endActionPane: canModify ? editActionPane() : null,
       child: GestureDetector(
         onTap: () => context.push('/animal_info', extra: animal),
         child: Container(

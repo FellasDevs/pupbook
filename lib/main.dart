@@ -58,13 +58,14 @@ class MyApp extends StatelessWidget {
             onSecondary: Color(0xFFBC8A28),
             secondaryContainer: Color(0xFFFFEDC9),
             tertiary: Color(0xFF3D5893), // 0xFF5A74AA 0xFF3D5893 0xFF25417E
-            onTertiaryContainer: Colors.white, // 0xFFB9C7E5
+            onTertiaryContainer: Color(0xFF5A74AA),
+            onTertiary: Colors.white, // 0xFFB9C7E5
             error: Colors.red,
             onError: Colors.white,
             background: Colors.white,
             onBackground: Colors.black,
             surface: Color(0xFF19726F),
-            onSurface: Color(0xFFB1E1DF),
+            onSurface: Colors.white,
           ),
           primarySwatch: generateMaterialColor(const Color(0xFFFD9340))),
       routerConfig: _router,
