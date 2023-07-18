@@ -13,6 +13,7 @@ class UnifeiDogs extends StatelessWidget {
       controller: AnimalsController('unifei_dogs'),
       userCanModifyAnimal: (animal) => userIdAdmin,
       userCanAddAnimal: userIdAdmin,
+      title: 'Unifei Dogs',
     );
   }
 }

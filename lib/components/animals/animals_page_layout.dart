@@ -9,6 +9,7 @@ import 'package:pupbook/models/animal.dart';
 class AnimalsPageLayout extends StatefulWidget {
   final bool Function(Animal)? userCanModifyAnimal;
   final bool userCanAddAnimal;
+  final String title;
 
   final AnimalsController controller;
 
@@ -17,6 +18,7 @@ class AnimalsPageLayout extends StatefulWidget {
     required this.controller,
     this.userCanModifyAnimal,
     this.userCanAddAnimal = false,
+    required this.title,
   });
 
   @override
@@ -68,10 +70,17 @@ class _AnimalsPageLayoutState extends State<AnimalsPageLayout> {
       context,
       title: 'Deseja deletar ${animal.name}?',
       description:
-          'Tem certeza que deseja deletar ${animal.name}? Essa ação não pode ser desfeita!',
+      'Tem certeza que deseja deletar ${animal
+          .name}? Essa ação não pode ser desfeita!',
       confirmBtnTxt: 'Deletar',
-      confirmButtonBgColor: Theme.of(context).colorScheme.error,
-      confirmButtonTxtColor: Theme.of(context).colorScheme.onError,
+      confirmButtonBgColor: Theme
+          .of(context)
+          .colorScheme
+          .error,
+      confirmButtonTxtColor: Theme
+          .of(context)
+          .colorScheme
+          .onError,
     );
 
     if (shouldDelete != true) return;
@@ -107,19 +116,35 @@ class _AnimalsPageLayoutState extends State<AnimalsPageLayout> {
   Widget build(BuildContext context) {
     return isLoading
         ? Center(
-            child: CircularProgressIndicator(
-                color: Theme.of(context).colorScheme.surface),
-          )
+      child: CircularProgressIndicator(
+          color: Theme
+              .of(context)
+              .colorScheme
+              .surface),
+    )
         : PageScaffold(
-            title: 'Cães da Unifei',
-            actionButtonOnPressed:
-                widget.userCanAddAnimal ? () => onAdd() : null,
-            child: AnimalsList(
-              animals: animals,
-              onEdit: onEdit,
-              onDelete: onDelete,
-              userCanModifyAnimal: widget.userCanModifyAnimal,
-            ),
-          );
+        title: widget.title,
+        actionButtonOnPressed:
+        widget.userCanAddAnimal ? () => onAdd() : null,
+        child: animals.isEmpty
+            ? Center(
+            child: Column(
+              children: [
+                Image.asset('assets/images/cat-&-girl.png'),
+                const Text('Nenhum animal cadastrado',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    )),
+                const SizedBox(height: 20),
+              ],
+            )) : AnimalsList(
+          animals: animals,
+          onEdit: onEdit,
+          onDelete: onDelete,
+          userCanModifyAnimal: widget.userCanModifyAnimal,
+        )
+
+    );
   }
 }

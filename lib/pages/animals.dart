@@ -12,6 +12,7 @@ class Animals extends StatelessWidget {
 
     return AnimalsPageLayout(
       controller: AnimalsController('animals'),
+      title: 'Pets',
       userCanAddAnimal: user != null,
       userCanModifyAnimal: (animal) => animal.createdBy == user?.uid,
     );

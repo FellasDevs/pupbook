@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
               style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            Image.asset('assets/images/login-image.png'),
+            Image.asset('assets/images/dog-&-boy.png'),
             SignInButton(
               Buttons.Google,
               text: "Sign up with Google",
