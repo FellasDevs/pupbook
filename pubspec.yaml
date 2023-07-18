@@ -43,6 +43,7 @@ dependencies:
   firebase_auth: ^4.6.3
   firebase_ui_auth: ^1.5.0
   flutter_slidable: ^3.0.0
+  flutter_signin_button: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +61,8 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  assets:
+    - assets/images/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
