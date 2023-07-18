@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pupbook/components/form_fields/custom_date_field.dart';
@@ -35,7 +36,15 @@ class _CreateAnimalState extends State<CreateAnimal> {
   @override
   void initState() {
     super.initState();
-    if (widget.animal != null) animal = widget.animal!;
+    if (widget.animal != null) {
+      setState(() {
+        animal = widget.animal!;
+      });
+    } else {
+      setState(() {
+        animal.createdBy = FirebaseAuth.instance.currentUser?.uid ?? '';
+      });
+    }
   }
 
   @override

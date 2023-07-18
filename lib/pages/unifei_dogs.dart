@@ -7,10 +7,12 @@ class UnifeiDogs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final userIdAdmin = false; // FirebaseAuth.instance.currentUser != null;
+
     return AnimalsPageLayout(
       controller: AnimalsController('unifei_dogs'),
-      userCanModifyAnimal: (animal) => true,
-      userCanAddAnimal: true,
+      userCanModifyAnimal: (animal) => userIdAdmin,
+      userCanAddAnimal: userIdAdmin,
       title: 'Unifei Dogs',
     );
   }
