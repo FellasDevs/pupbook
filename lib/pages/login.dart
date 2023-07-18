@@ -38,7 +38,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Image.asset('assets/images/login-image.png'),
+              Image.asset('assets/images/dog-&-boy.png'),
               Padding(
                 padding: const EdgeInsets.only(top: 60.0),
                 child: Align(
