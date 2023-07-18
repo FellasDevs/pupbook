@@ -17,14 +17,16 @@ class AnimalInfo extends StatelessWidget {
     final imageExists = animal.image != null && animal.image!.isNotEmpty;
 
     final fields = [
-      imageExists
-          ? Image.network(
-              animal.image!,
-              height: 300.0,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            )
-          : null,
+      ...[
+        imageExists
+            ? Image.network(
+                animal.image!,
+                height: 300.0,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              )
+            : null
+      ],
       Text(
         animal.name,
         style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
