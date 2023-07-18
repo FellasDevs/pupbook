@@ -63,7 +63,7 @@ class AnimalsListItem extends StatelessWidget {
       startActionPane: canModify ? deleteActionPane() : null,
       endActionPane: canModify ? editActionPane() : null,
       child: GestureDetector(
-        onTap: () => context.push('/animal_info', extra: animal),
+        onTap: () => context.push('/animal-info', extra: animal),
         child: Container(
           height: 70,
           padding: const EdgeInsets.all(7),

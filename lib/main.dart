@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pupbook/components/layout/route_navigation.dart';
 import 'package:pupbook/globals/app_routes.dart';
+import 'package:pupbook/models/animal.dart';
+import 'package:pupbook/pages/animal_info.dart';
 import 'package:pupbook/pages/login.dart';
 import 'package:pupbook/utils/generate_material_color.dart';
 
@@ -25,6 +27,12 @@ final GoRouter _router = GoRouter(
       path: '/login',
       builder: (context, state) {
         return LoginScreen();
+      },
+    ),
+    GoRoute(
+      path: '/animal-info',
+      builder: (context, state) {
+        return AnimalInfo(animal: state.extra as Animal);
       },
     ),
     ShellRoute(
