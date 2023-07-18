@@ -25,7 +25,7 @@ class AnimalInfo extends StatelessWidget {
                 width: double.infinity,
                 fit: BoxFit.cover,
               )
-            : null
+            : const Spacer()
       ],
       Text(
         animal.name,
