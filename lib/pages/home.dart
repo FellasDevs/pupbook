@@ -11,10 +11,22 @@ class Home extends StatelessWidget {
     return Center(
         child: Column(
       children: [
-        const Text('PupBook'),
+        Image.asset('assets/images/girl-&-cat-alt.png'),
+        const Text('PupBook',
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            )),
         ElevatedButton(
             onPressed: () => authController.signOut(context),
-            child: const Text('deslogar'))
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.error,
+              foregroundColor: Theme.of(context).colorScheme.onError,
+            ),
+            child: const Text(
+              'Sair',
+              style: TextStyle(fontSize: 20.0),
+            )),
       ],
     ));
   }
