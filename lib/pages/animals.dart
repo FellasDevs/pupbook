@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pupbook/components/animals/animals_page_layout.dart';
 import 'package:pupbook/controllers/animals_controller.dart';
@@ -7,6 +8,12 @@ class Animals extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimalsPageLayout(controller: AnimalsController('animals'));
+    final user = FirebaseAuth.instance.currentUser;
+
+    return AnimalsPageLayout(
+      controller: AnimalsController('animals'),
+      userCanAddAnimal: user != null,
+      userCanModifyAnimal: (animal) => animal.createdBy == user?.uid,
+    );
   }
 }

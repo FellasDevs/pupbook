@@ -27,7 +27,7 @@ class AnimalsListItemContent extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            image: animal.image != null
+            image: animal.image != null && animal.image!.isNotEmpty
                 ? DecorationImage(
                     image: NetworkImage(animal.image!),
                     fit: BoxFit.fill,

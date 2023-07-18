@@ -14,16 +14,17 @@ class AnimalInfo extends StatelessWidget {
     final animalAge =
         animal.birthDate != null ? calculateAge(animal.birthDate!) : null;
 
+    final imageExists = animal.image != null && animal.image!.isNotEmpty;
+
     final fields = [
-      if (animal.image != null) ...[
-        Image.network(
-          animal.image!,
-          height: 300.0,
-          width: double.infinity,
-          fit: BoxFit.cover,
-        ),
-        const SizedBox(height: 16.0),
-      ],
+      imageExists
+          ? Image.network(
+              animal.image!,
+              height: 300.0,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            )
+          : null,
       Text(
         animal.name,
         style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
