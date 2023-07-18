@@ -9,6 +9,7 @@ import 'package:pupbook/models/animal.dart';
 class AnimalsPageLayout extends StatefulWidget {
   final bool Function(Animal)? userCanModifyAnimal;
   final bool userCanAddAnimal;
+  final String title;
 
   final AnimalsController controller;
 
@@ -17,6 +18,7 @@ class AnimalsPageLayout extends StatefulWidget {
     required this.controller,
     this.userCanModifyAnimal,
     this.userCanAddAnimal = false,
+    required this.title,
   });
 
   @override
@@ -111,7 +113,7 @@ class _AnimalsPageLayoutState extends State<AnimalsPageLayout> {
                 color: Theme.of(context).colorScheme.surface),
           )
         : PageScaffold(
-            title: 'Cães da Unifei',
+            title: widget.title,
             actionButtonOnPressed:
                 widget.userCanAddAnimal ? () => onAdd() : null,
             child: AnimalsList(

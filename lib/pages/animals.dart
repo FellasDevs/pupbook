@@ -7,6 +7,6 @@ class Animals extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimalsPageLayout(controller: AnimalsController('animals'));
+    return AnimalsPageLayout(controller: AnimalsController('animals'), title: 'Pets',);
   }
 }
