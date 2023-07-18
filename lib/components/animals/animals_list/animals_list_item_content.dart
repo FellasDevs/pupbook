@@ -8,7 +8,7 @@ class AnimalsListItemContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _styledText(String text) {
+    styledText(String text) {
       return Text(
         text,
         maxLines: 1,
@@ -23,8 +23,8 @@ class AnimalsListItemContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          width: 65,
-          height: 65,
+          width: 50,
+          height: 50,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             image: animal.image != null
@@ -44,13 +44,15 @@ class AnimalsListItemContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _styledText(animal.name),
-              _styledText(animal.description),
+              styledText(animal.name),
+              styledText(animal.description),
             ],
           ),
         ),
-        Icon(Icons.arrow_forward,
-            color: Theme.of(context).colorScheme.onTertiary),
+        Icon(
+          Icons.arrow_forward,
+          color: Theme.of(context).colorScheme.onTertiary,
+        ),
       ],
     );
   }

@@ -34,11 +34,11 @@ class BaseCustomField<T> extends StatelessWidget {
         initialValue: value,
         validator: validator,
         builder: (state) {
-          return TextField(
+          return TextFormField(
             inputFormatters: inputFormatters,
             keyboardType: keyboardType,
             onChanged: onChanged,
-            controller: TextEditingController(text: text),
+            initialValue: text,
             onTap: () => onTap != null ? onTap!(state) : null,
             readOnly: readOnly,
             decoration: InputDecoration(
