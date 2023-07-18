@@ -7,6 +7,10 @@ class UnifeiDogs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimalsPageLayout(controller: AnimalsController('unifei_dogs'));
+    return AnimalsPageLayout(
+      controller: AnimalsController('unifei_dogs'),
+      userCanModifyAnimal: (animal) => true,
+      userCanAddAnimal: true,
+    );
   }
 }
